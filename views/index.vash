@@ -1,0 +1,13 @@
+@html.extend('layout', function(model){
+  @html.block('body', function(){
+
+      <div class="jumbotron">
+        <h1>@model.header</h1>
+        <p>@model.text</p>
+      </div>
+
+
+  })
+
+})
+
