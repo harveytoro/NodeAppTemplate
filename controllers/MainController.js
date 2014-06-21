@@ -1,18 +1,44 @@
 function MainController(){
-	
-	// constructor 
+
+	this.AddressBook = require('../models/AddressBook');
+	this.AddrB = new this.AddressBook();
 
 }
 
-MainController.prototype.indexAction = function(req, res){
+MainController.prototype.index_action = function(req, res){
 
+	/*
+	Add an address
 
-	res.render('index', 
-		{header:'Node.js + Express + Bootstrap', text:'Using vash templating'});
+	var addr = {
+		name: 'Jose Doe',
+		street: '1 first road',
+		postcode: 'W1 9RF',
+		city: 'London'
+	}
+	self.AddrB.add_address(addr, function(){
+		res.render('index', 
+		{header:'Node.js + Express + Bootstrap', text:'Using vash templating '});
+	});
+
+    */
+
+	self.AddrB.get_addresses(function(items){
+
+		res.render('index', 
+		{header:'Node.js + Express + Bootstrap', text:'Using vash templating ', addresses: items});
+
+	});
+
 
 };
 
-MainController.prototype.paramAction = function(req, res){
+MainController.prototype.form_action = function(req, res) {
+
+	console.log(req.param('emailinput'));
+
+};
+MainController.prototype.param_action = function(req, res){
 
 	res.render('index', 
 		{header:'Node.js + Express + Bootstrap', text:'Action method that reads parameters: '
@@ -20,7 +46,7 @@ MainController.prototype.paramAction = function(req, res){
 
 };
 
-MainController.prototype.errorAction = function(req, res){
+MainController.prototype.error_action = function(req, res){
 
 	res.status(404);
 	res.render('index', {header: '404 File Not Found'});

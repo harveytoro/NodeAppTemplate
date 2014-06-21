@@ -6,6 +6,8 @@
   "dependencies": {
     "express": "4.x",
     "socket.io":"1.x",
-    "vash":"*"
+    "vash":"*", 
+    "mongodb":"1.4.6",
+    "body-parser": "~1.0.0"
   }
 }

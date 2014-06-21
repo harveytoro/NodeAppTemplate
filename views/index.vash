@@ -6,6 +6,15 @@
         <p>@model.text</p>
       </div>
 
+      <form action="/take" method="POST">
+      <input type="text" name="emailinput">
+      <input type="submit" name="submit">
+      </form>
+
+        @model.addresses.forEach(function(addr){
+        <li>@addr.name</li>
+    })
+
 
   })
 
